@@ -1,0 +1,15 @@
+/* TEAM */
+Developer: Breno Alvim
+Site: https://github.com/obrenoalvim
+GitHub: https://github.com/obrenoalvim/portfolioGenerator
+
+/* THANKS */
+shadcn/ui: https://ui.shadcn.com/
+Radix UI: https://www.radix-ui.com/
+Lucide icons: https://lucide.dev/
+GitHub REST API: https://docs.github.com/en/rest
+
+/* SITE */
+Language: Portuguese (Brazil), English (llms.txt)
+Framework: Next.js (App Router)
+Components: TypeScript, Tailwind CSS

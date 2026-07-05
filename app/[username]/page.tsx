@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useState } from 'react';
+import Image from 'next/image';
 import { useParams, useRouter } from 'next/navigation';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
@@ -185,16 +186,19 @@ export default function UsernamePage() {
     .slice(0, 8);
 
   return (
-    <div className="min-h-screen" style={{ backgroundColor }}>
+    <main className="min-h-screen" style={{ backgroundColor }}>
       <div className="container mx-auto px-4 py-8">
         {/* Profile Header */}
         <div className="grid lg:grid-cols-3 gap-8 mb-12">
           <div className="lg:col-span-1 space-y-8">
             <Card className="border-none shadow-xl">
               <CardContent className="p-8 text-center">
-                <img
+                <Image
                   src={user.avatar_url}
                   alt={user.name || user.login}
+                  width={128}
+                  height={128}
+                  priority
                   className="w-32 h-32 rounded-full mx-auto mb-6 border-4 border-white shadow-lg"
                 />
                 
@@ -431,7 +435,7 @@ export default function UsernamePage() {
           </p>
         </div>
       </div>
-    </div>
+    </main>
   );
 }
 

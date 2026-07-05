@@ -79,7 +79,8 @@ export default async function UsernameLayout({
   const uname = (await params).username;
   const data = await fetchGitHubUser(uname);
 
-  const siteUrl = process.env.NEXT_PUBLIC_SITE_URL ?? 'http://localhost:3000';
+  const siteUrl =
+    process.env.NEXT_PUBLIC_SITE_URL ?? 'https://githubportifoliogenerator.vercel.app';
   const displayName = data?.name || data?.login || uname;
 
   const jsonLd = {

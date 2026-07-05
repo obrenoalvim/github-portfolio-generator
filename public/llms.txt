@@ -72,7 +72,7 @@ Users can create a public GitHub repository named `config` containing a `portfol
 
 - Homepage / Generator: /
 - Example portfolio: /octocat
-- Source code: https://github.com/obrenoalvim/portfolioGenerator
+- Source code: https://github.com/obrenoalvim/github-portfolio-generator
 
 ## License
 

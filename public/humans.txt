@@ -1,7 +1,7 @@
 /* TEAM */
 Developer: Breno Alvim
 Site: https://github.com/obrenoalvim
-GitHub: https://github.com/obrenoalvim/portfolioGenerator
+GitHub: https://github.com/obrenoalvim/github-portfolio-generator
 
 /* THANKS */
 shadcn/ui: https://ui.shadcn.com/

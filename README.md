@@ -1,6 +1,6 @@
 # GitHub Portfolio Generator
 
-[![CI](https://github.com/obrenoalvim/portfolioGenerator/actions/workflows/ci.yml/badge.svg)](https://github.com/obrenoalvim/portfolioGenerator/actions/workflows/ci.yml) [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
+[![CI](https://github.com/obrenoalvim/github-portfolio-generator/actions/workflows/ci.yml/badge.svg)](https://github.com/obrenoalvim/github-portfolio-generator/actions/workflows/ci.yml) [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
 
 Transforme seu perfil do GitHub em um portfólio profissional e personalizável. Este projeto em Next.js consome a API pública do GitHub para exibir informações do usuário, projetos em destaque, tecnologias principais e uma linha do tempo de experiência (opcional via configuração).
 

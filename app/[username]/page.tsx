@@ -52,6 +52,7 @@ interface Repository {
   created_at: string;
   updated_at: string;
   topics: string[];
+  is_template: boolean;
 }
 
 interface ExperienceItem {
@@ -126,6 +127,10 @@ export default function UsernamePage() {
             repoNameLower !== 'readme' &&
             repoNameLower !== unameLower
           );
+        })
+        .sort((a, b) => {
+          if (a.is_template !== b.is_template) return a.is_template ? 1 : -1;
+          return b.stargazers_count - a.stargazers_count;
         });
       setRepositories(filteredRepos);
 

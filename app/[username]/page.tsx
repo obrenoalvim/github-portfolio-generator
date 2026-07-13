@@ -93,6 +93,7 @@ export default function UsernamePage() {
   const [user, setUser] = useState<GitHubUser | null>(null);
   const [repositories, setRepositories] = useState<Repository[]>([]);
   const [config, setConfig] = useState<Config | null>(null);
+  const [autoLinkedin, setAutoLinkedin] = useState<string | undefined>(undefined);
   const [loading, setLoading] = useState<boolean>(true);
   const [error, setError] = useState<string | null>(null);
 
@@ -146,6 +147,19 @@ export default function UsernamePage() {
       } catch {
         // Config é opcional
       }
+
+      // LinkedIn detectado via Social accounts do GitHub (opcional)
+      try {
+        const socialResponse = await fetch(
+          `https://api.github.com/users/${uname}/social_accounts`
+        );
+        if (socialResponse.ok) {
+          const socialAccounts: { provider: string; url: string }[] = await socialResponse.json();
+          setAutoLinkedin(socialAccounts.find((a) => a.provider === 'linkedin')?.url);
+        }
+      } catch {
+        // Social accounts é opcional
+      }
     } catch (err) {
       setError(err instanceof Error ? err.message : 'Erro ao carregar dados');
     } finally {
@@ -168,6 +182,10 @@ export default function UsernamePage() {
   const theme = config?.theme || {};
   const primaryColor = theme.primaryColor || '#3B82F6';
   const backgroundColor = theme.backgroundColor || '#F8FAFC';
+
+  const linkedinUrl = config?.social?.linkedin
+    ? `https://linkedin.com/in/${config.social.linkedin}`
+    : autoLinkedin;
 
   const featuredRepos = config?.sections?.featured && config.sections
     ? repositories.filter((repo) => config.sections!.featured?.includes(repo.name))
@@ -244,9 +262,9 @@ export default function UsernamePage() {
                     </a>
                   </Button>
                   
-                  {config?.social?.linkedin && (
+                  {linkedinUrl && (
                     <Button variant="outline" size="sm" asChild>
-                      <a href={`https://linkedin.com/in/${config.social.linkedin}`} target="_blank" rel="noopener noreferrer">
+                      <a href={linkedinUrl} target="_blank" rel="noopener noreferrer">
                         <Linkedin className="h-4 w-4 mr-2" />
                         LinkedIn
                       </a>
